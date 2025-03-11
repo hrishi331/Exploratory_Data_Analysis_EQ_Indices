@@ -8,6 +8,7 @@ from scipy.stats import norm
 import streamlit as st
 import plotly.express as px
 import datetime
+import time
 
 
 # Streamlit - header
@@ -29,6 +30,17 @@ end_date = r1.date_input('to')
 # end_date = '2025-02-11'
 #----------------------------
 
+if st.button("SUBMIT"):
+    # initialize progress bar
+    bar = st.progress(0)
+
+    # Progressing 
+    for i in range(101):
+        time.sleep(0.05)
+        bar.progress(i)
+
+    # Task completion
+    bar.success("Task completed !!")
 
 # Data download
 if start_date<end_date:
